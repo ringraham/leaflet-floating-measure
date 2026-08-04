@@ -1,0 +1,219 @@
+/* leaflet-standalone-measure.css */
+.interactive-measure-ctrl {
+    background: rgba(15, 17, 20, 0.45); 
+    backdrop-filter: blur(2px); 
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    overflow: hidden;
+    font-family: sans-serif;
+    color: #e0e0e0;
+    transition: width 0.2s ease, background 0.2s;
+    box-sizing: border-box; 
+}
+
+.interactive-measure-ctrl.collapsed {
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    background: rgba(15, 17, 20, 0.6); 
+}
+.interactive-measure-ctrl.collapsed:hover {
+    background: rgba(25, 28, 33, 0.75);
+}
+.interactive-measure-ctrl.collapsed #measure-panel { display: none; }
+
+.interactive-measure-ctrl.expanded { width: 88px; } 
+.interactive-measure-ctrl.expanded.settings-open { 
+    width: 160px; 
+    background: rgba(15, 17, 20, 0.55); 
+}
+.interactive-measure-ctrl.expanded #measure-toggle { display: none; }
+
+#measure-toggle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; 
+}
+
+.ctrl-drag-handle {
+    background: transparent;
+    cursor: move;
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff; 
+}
+
+.ctrl-body {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    justify-items: center;
+}
+
+.tool-btn {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.55); 
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    border-radius: 6px;
+    color: #ffffff; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(255,255,255,0.05); 
+}
+.tool-btn:hover {
+    background: rgba(0, 0, 0, 0.85); 
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Active / Pressed state for tool buttons */
+.tool-btn.active {
+    background: rgba(0, 0, 0, 0.95); 
+    border-color: rgba(51, 136, 255, 0.8); /* Leaflet blue */
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.9); 
+    transform: translateY(1px);
+    color: #3388ff; 
+}
+
+.tool-separator {
+    width: 85%;
+    height: 1px; 
+    background: rgba(255, 255, 255, 0.15); 
+}
+
+#settings-tools {
+    display: none;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.settings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.settings-row input[type="number"] {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 4px;
+    width: 40px;
+}
+.settings-row input[type="color"] {
+    background: transparent;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+
+#btn-erase {
+    width: 100%;
+    padding: 6px;
+    margin-top: 6px;
+    background: rgba(220, 53, 69, 0.25);
+    border: 1px solid rgba(220, 53, 69, 0.5);
+    color: #ff8a8a; 
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#btn-erase:hover { 
+    background: rgba(220, 53, 69, 0.5); 
+    color: #fff;
+}
+
+.measure-vertex-handle {
+    background-color: #e63946; 
+    border: 1px solid #b71c1c; 
+    border-radius: 50%;
+    cursor: grab;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+.measure-vertex-handle:active { cursor: grabbing; }
+
+.measure-label { 
+    pointer-events: none; 
+    overflow: visible !important; 
+}
+
+.measure-label-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #111;
+    text-align: center;
+    white-space: nowrap;
+    transform: translate(-50%, -50%); 
+    text-shadow: 
+        1px 1px 0px #fff, 
+       -1px -1px 0px #fff, 
+        1px -1px 0px #fff, 
+       -1px 1px 0px #fff,
+        0px 0px 4px #fff; 
+}
+.settings-row select {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 3px;
+    padding: 2px 4px;
+    width: 65px;
+    font-size: 11px;
+    cursor: pointer;
+}
+.settings-row select option {
+    background: #222; 
+    color: #fff;
+}
+
+/* Export Button Styling */
+#btn-export {
+    width: 100%;
+    padding: 6px;
+    margin-top: 6px;
+    background: rgba(51, 136, 255, 0.25);
+    border: 1px solid rgba(51, 136, 255, 0.5);
+    color: #74b9ff; 
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#btn-export:hover { 
+    background: rgba(51, 136, 255, 0.5); 
+    color: #fff;
+}
+
+/* Custom cursor for active measuring */
+.leaflet-container.measuring-active,
+.leaflet-container.measuring-active .leaflet-interactive {
+    cursor: var(--measure-cursor, crosshair) !important; 
+}
