@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Floating Measure Demo</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+    <!-- Leaflet Floating Measure CSS -->
+    <!-- Assumes this file is in the same directory as index.html -->
+    <link rel="stylesheet" href="./leaflet-floating-measure.css" />
+
+    <style>
+        /* Ensure the map takes up the full browser window */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: sans-serif;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Leaflet Floating Measure JS -->
+    <!-- Assumes this file is in the same directory as index.html -->
+    <script src="./leaflet-floating-measure.js"></script>
+
+    <script>
+        // 1. Initialize the map (centered on a default location)
+        var map = L.map('map').setView([39.8283, -98.5795], 4); 
+
+        // 2. Add the OpenStreetMap tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // 3. Initialize and add the Floating Measure control
+        var measureControl = L.control.floatingMeasure({
+            position: 'bottomleft',
+            activeCursor: 'crosshair'
+        }).addTo(map);
+    </script>
+</body>
+</html>
