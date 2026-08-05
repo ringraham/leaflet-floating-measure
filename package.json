@@ -1,0 +1,33 @@
+{
+  "name": "leaflet-floating-measure",
+  "version": "1.0.0",
+  "description": "Leaflet measure tool that floats and can be moved anywhere on the map",
+  "keywords": [
+    "leaflet",
+    "measure",
+    "distance",
+    "area",
+    "polygon",
+    "geometry",
+    "standalone",
+    "moveable",
+    "floating",
+    "map",
+    "gis"
+  ],
+  "homepage": "https://github.com/ringraham/leaflet-floating-measure#readme",
+  "bugs": {
+    "url": "https://github.com/ringraham/leaflet-floating-measure/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ringraham/leaflet-floating-measure.git"
+  },
+  "license": "MIT",
+  "author": "Ron Ingraham (https://enjoythemaps.com)",
+  "type": "commonjs",
+  "main": "leaflet-floating-measure.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
